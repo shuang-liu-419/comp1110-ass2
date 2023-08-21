@@ -49,11 +49,11 @@ public class GameString {
 
     // getter methods
     public String getPlayer1String() { return this.p1String; }
-    public String getPlayer2String() {}
-    public String getPlayer3String() {}
-    public String getPlayer4String() {}
-    public String getAssamString() {}
-    public String getBoardString() {}
+    public String getPlayer2String() {return "";}
+    public String getPlayer3String() {return "";}
+    public String getPlayer4String() {return "";}
+    public String getAssamString() {return "";}
+    public String getBoardString() {return "";}
 
     // setter methods
     public void setNewPlayerString(String newPlayerString) {}
