@@ -13,7 +13,7 @@ public class GameString {
     private String boardString;
 
     // example of gamestring - Pr01214i + Pr01214i + A04E + B(3 * 49)
-    public GameString(String string) throws IllegalAccessException {
+    GameString(String string) throws IllegalAccessException {
 
         if (string.length() < PLAYER_STRING_LENGTH * 2 + ASSAM_STRING_LENGTH + BOARD_STRING_LENGTH
                 || string.length() > PLAYER_STRING_LENGTH * 2 + ASSAM_STRING_LENGTH + BOARD_STRING_LENGTH)
@@ -49,28 +49,21 @@ public class GameString {
 
     // getter methods
     public String getPlayer1String() { return this.p1String; }
-    public String getPlayer2String() {return "";}
-    public String getPlayer3String() {return "";}
-    public String getPlayer4String() {return "";}
-    public String getAssamString() {return "";}
-    public String getBoardString() {return "";}
+    public String getPlayer2String() {}
+    public String getPlayer3String() {}
+    public String getPlayer4String() {}
+    public String getAssamString() {}
+    public String getBoardString() {}
 
     // setter methods
     public void setNewPlayerString(String newPlayerString) {}
     public void setNewRugString(String newRugString){}
     public void setNewBoardString(String newBoardString){}
 
-
-    // toString
+    // other helper methdos
     @Override
     public String toString() {
-        return "GameString{" +
-                "p1String='" + p1String + '\'' +
-                ", p2String='" + p2String + '\'' +
-                ", p3String='" + p3String + '\'' +
-                ", p4String='" + p4String + '\'' +
-                ", assamString='" + assamString + '\'' +
-                ", boardString='" + boardString + '\'' +
-                '}';
+        return "";
     }
+
 }
