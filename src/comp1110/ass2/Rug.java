@@ -37,10 +37,10 @@ public class Rug {
     }
 
     // getter
-    public Color getColor() {}
-    public String getID() {}
-    public IntPair getCord1() {}
-    public IntPair getCord2() {}
+    public Color getColor() {return this.color;}
+    public String getID() {return "";}
+    public IntPair getCord1() {return new IntPair(0,0);}
+    public IntPair getCord2() {return new IntPair(0,0);}
 
     // setter
     public void setColor(Color newColor) {}
