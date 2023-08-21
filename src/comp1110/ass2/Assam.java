@@ -1,39 +1,28 @@
 package comp1110.ass2;
 
 public class Assam {
-    public enum Direction{
-        N(0),
-        S(180),
-        W(270),
-        E(90);
-        public final int value;
 
-        Direction(int angle ){
-            this.value=angle;
-        }
+    public IntPair cord;
+
+    public char orientation;
+
+    public Assam(String assamString){
+        int x = Integer.parseInt(assamString.substring(1,2));
+        int y = Integer.parseInt(assamString.substring(2,3));
+
+        this.cord = new IntPair(x, y);
+        this.orientation = assamString.charAt(3);
     }
 
-    public final int x;
-    public final int y;
+    // getter
+    public int getCord() {}
+    public char getOrientation() {}
 
-    public Direction d;
+    // setter
+    public void setCord(IntPair newCord) { this.cord = newCord; }
+    public void setOrientation(char newOrientation) { this.orientation = newOrientation; }
 
-    public Assam(int x,int y,Direction d){
-        this.x=x;
-        this.y=y;
-        this.d=d;
-    }
-
-    public int getX(){return x;}
-    public int gety(){return y;}
-
-    public int afterMovingX(int movingX){
-        return movingX+x;
-    }
-
-    public int afterMovingY(int movingY){
-        return movingY+y;
-    }
+    public void getNewCordAfterMovement() {}
 
 
 }
