@@ -1,8 +1,6 @@
 package comp1110.ass2;
 import java.util.Random;
 
-import javax.imageio.stream.ImageInputStream;
-
 public class Marrakech {
 
     /**
@@ -27,7 +25,6 @@ public class Marrakech {
      */
     public static boolean isRugValid(String gameString, String rug) {
         // FIXME: Task 4
-
         return false;
     }
 

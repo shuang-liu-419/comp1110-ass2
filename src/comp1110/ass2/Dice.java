@@ -7,8 +7,6 @@ public class Dice {
     private static final int NUMBER_OF_DICE_FACES = 6;
     public static final int[] DICE_SIDES = {1, 2, 2, 3, 3, 4};
 
-
-
 }
 
 /*
