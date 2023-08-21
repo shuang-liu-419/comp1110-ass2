@@ -25,14 +25,14 @@ public class Tile {
 
 
     // getter methods
-    public Color getColor() {}
-    public int getId() {}
-    public IntPair getCoordinate() {}
+    public Color getColor() {return Color.CYAN;}
+    public int getId() {return 0;}
+    public IntPair getCoordinate() {return new IntPair(0,0);}
 
-    public int getTilePosition() {}
+    public int getTilePosition() {return 0;}
 
     // if tile is occupied, it returns true else false meaning tile is empty (no rugs on tile)
-    public boolean isOccupied() {}
+    public boolean isOccupied() {return false;}
 
 
     // setter methods
@@ -40,7 +40,7 @@ public class Tile {
 
     public void setRug(Rug newRug) {}
 
-    public String toString() {}
+    public String toString() {return "";}
 
 }
  

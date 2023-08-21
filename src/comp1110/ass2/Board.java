@@ -36,10 +36,11 @@ public  class Board {
     }
 
     // getters
-    public Tile getTile() {}
+    public Tile getTile() {
+        return new Tile("",0,0); }
 
     // other helpers
-    public String toString() {}
+    public String toString() {return " ";}
 
 
 }
