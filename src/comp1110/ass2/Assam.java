@@ -15,8 +15,8 @@ public class Assam {
     }
 
     // getter
-    public int getCord() {}
-    public char getOrientation() {}
+    public int getCord() {return 0;}
+    public char getOrientation() {return 'a';}
 
     // setter
     public void setCord(IntPair newCord) { this.cord = newCord; }
