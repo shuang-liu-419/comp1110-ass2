@@ -1,4 +1,5 @@
 package comp1110.ass2;
+import java.util.Random;
 
 public class Marrakech {
 
@@ -43,7 +44,8 @@ public class Marrakech {
      */
     public static int rollDie() {
         // FIXME: Task 6
-        return -1;
+        int randomNum = new Random().nextInt(Dice.DICE_SIDES.length);
+        return Dice.DICE_SIDES[randomNum];
     }
 
     /**

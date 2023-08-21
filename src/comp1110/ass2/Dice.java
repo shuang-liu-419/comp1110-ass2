@@ -1,7 +1,15 @@
 package comp1110.ass2;
 
+
+
 public class Dice {
 
+    private static final int NUMBER_OF_DICE_FACES = 6;
+    public static final int[] DICE_SIDES = {1, 2, 2, 3, 3, 4};
+
+}
+
+/*
     private final int index;
     private final int num;
 
@@ -28,4 +36,16 @@ public class Dice {
         return DICE[index-1].getNumber();
     }
 
-}
+
+
+
+
+    // may can be written under:
+
+
+    // a field that specifies the number of surfaces on a die.
+    private int faces;
+    // a non-argument constructor that specifies the default number of surfaces
+    public Dice () {
+        faces = 6;
+    }*/
