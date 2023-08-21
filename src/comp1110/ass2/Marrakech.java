@@ -1,6 +1,8 @@
 package comp1110.ass2;
 import java.util.Random;
 
+import javax.imageio.stream.ImageInputStream;
+
 public class Marrakech {
 
     /**
