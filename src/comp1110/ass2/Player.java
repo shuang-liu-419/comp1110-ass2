@@ -12,8 +12,8 @@ public class Player {
     public char status;
 
     // example of player string - Pr00814o
-    public Player(String playerString){
-
+    public Player(Color c, int money ){
+// put into gameString
         char colorInChar =  playerString.charAt(1);
         for (Color c : Color.values()){
           if (c.equals(colorInChar)) {  this.c = c; }
