@@ -13,7 +13,7 @@ public class GameString {
     private String boardString;
 
     // example of gamestring - Pr01214i + Pr01214i + A04E + B(3 * 49)
-    GameString(String string) throws IllegalAccessException {
+    public GameString(String string) throws IllegalAccessException {
 
         if (string.length() < PLAYER_STRING_LENGTH * 2 + ASSAM_STRING_LENGTH + BOARD_STRING_LENGTH
                 || string.length() > PLAYER_STRING_LENGTH * 2 + ASSAM_STRING_LENGTH + BOARD_STRING_LENGTH)
@@ -60,10 +60,17 @@ public class GameString {
     public void setNewRugString(String newRugString){}
     public void setNewBoardString(String newBoardString){}
 
-    // other helper methdos
+
+    // toString
     @Override
     public String toString() {
-        return "";
+        return "GameString{" +
+                "p1String='" + p1String + '\'' +
+                ", p2String='" + p2String + '\'' +
+                ", p3String='" + p3String + '\'' +
+                ", p4String='" + p4String + '\'' +
+                ", assamString='" + assamString + '\'' +
+                ", boardString='" + boardString + '\'' +
+                '}';
     }
-
 }

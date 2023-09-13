@@ -62,6 +62,8 @@ public class IntPair {
         return x == position.x && y == position.y;
     }
 
+
+
     /**
      *  Boilerplate method to ensure that an array of IntPair can be sorted
      * @return hash of this object
@@ -70,6 +72,8 @@ public class IntPair {
     public int hashCode() {
         return Objects.hash(x, y);
     }
+
+
 
     /**
      * Converts IntPair object to a string which can be printed out
