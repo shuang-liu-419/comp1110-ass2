@@ -27,6 +27,7 @@ public class Marrakech {
      */
     public static boolean isRugValid(String gameString, String rug) {
         // FIXME: Task 4
+
         return false;
     }
 
