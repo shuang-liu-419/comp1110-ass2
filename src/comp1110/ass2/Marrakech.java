@@ -1,9 +1,13 @@
 package comp1110.ass2;
+import java.util.ArrayList;
 import java.util.Random;
+import java.util.stream.Collectors;
 
 import javax.imageio.stream.ImageInputStream;
 
 public class Marrakech {
+
+    public static int gameRound = 0;
 
     /**
      * Determine whether a rug String is valid.
@@ -26,10 +30,24 @@ public class Marrakech {
      * @return true if the rug is valid, and false otherwise.
      */
     public static boolean isRugValid(String gameString, String rug) {
-        // FIXME: Task 4
-        return false;
+        if(rug == null || rug.length() != GameString.RUG_STRING_LENGTH) return false;
+
+        GameString gs = new GameString(gameString);
+
+        if(gs.getPlayerStrings().stream().noneMatch(playerString -> playerString.charAt(1) == rug.charAt(0)))
+            return false;
+
+        Rug test = new Rug(rug);
+
+
+
+        if(!test.isCoordValid()) return false;
+
+        Board board = new Board(gs.getBoardString());
+        return !board.containsSameRug(rug.substring(0, 3));
     }
 
+    public static final int[] DICE_SIDES = {1, 2, 2, 3, 3, 4};
     /**
      * Roll the special Marrakech die and return the result.
      * Note that the die in Marrakech is not a regular 6-sided die, since there
@@ -45,9 +63,8 @@ public class Marrakech {
      * @return The result of the roll of the die meeting the criteria above
      */
     public static int rollDie() {
-        // FIXME: Task 6
-        int randomNum = new Random().nextInt(Dice.DICE_SIDES.length);
-        return Dice.DICE_SIDES[randomNum];
+        int randomNum = new Random().nextInt(DICE_SIDES.length);
+        return DICE_SIDES[randomNum];
     }
 
     /**
@@ -108,8 +125,19 @@ public class Marrakech {
      * @return The amount of payment due, as an integer.
      */
     public static int getPaymentAmount(String gameString) {
-        // FIXME: Task 11
-        return -1;
+        GameString gs = new GameString(gameString);
+        Board board = new Board(gs.getBoardString());
+        System.out.println(board);
+        Assam assam = new Assam(gs.getAssamString());
+
+        Color currentColor = board.getTileColor(assam.getCoord().x, assam.getCoord().y);
+
+        ArrayList<Player> players = gs.getPlayerStrings().stream().map(Player::new).collect(Collectors.toCollection(ArrayList::new));
+        for (Player p : players) {
+            if(currentColor == p.getColor() && !p.isInGame()) return 0;
+        }
+
+        return board.getConnectingRugs(assam.getCoord().x, assam.getCoord().y, currentColor);
     }
 
     /**
@@ -143,8 +171,9 @@ public class Marrakech {
      * @return A String representing Assam's state after the movement.
      */
     public static String moveAssam(String currentAssam, int dieResult){
-        // FIXME: Task 13
-        return "";
+        Assam assam = new Assam(currentAssam);
+        assam.updateMovement(dieResult);
+        return assam.toString();
     }
 
     /**

@@ -1,69 +1,99 @@
 package comp1110.ass2;
 
+import java.util.ArrayList;
+import java.util.StringJoiner;
+
 public class GameString {
 
-    private static final int PLAYER_STRING_LENGTH = 8;
-    private static final int ASSAM_STRING_LENGTH = 4;
-    private static final int BOARD_STRING_LENGTH = 148;
-    private String p1String;
-    private String p2String;
-    private String p3String;
-    private String p4String;
+    public static final int PLAYER_STRING_LENGTH = 8;
+    public static final char PLAYER_CHAR = 'P';
+    public static final char PLAYER_IN_GAME_CHAR = 'i';
+    public static final char PLAYER_OUT_GAME_CHAR = 'o';
+
+    public static final int ASSAM_STRING_LENGTH = 4;
+    public static final char ASSAM_CHAR = 'A';
+
+    public static final int BOARD_STRING_LENGTH = 148;
+    public static final char BOARD_CHAR = 'B';
+
+    public static final int RUG_STRING_LENGTH = 7;
+    public static final int RUG_SHORT_STRING_LENGTH = 3;
+
+    public static final String RUG_DEFAULT_STRING = "n00";
+
+    private String gameString;
+
+    private ArrayList<String> playerStrings;
     private String assamString;
     private String boardString;
 
     // example of gamestring - Pr01214i + Pr01214i + A04E + B(3 * 49)
-    GameString(String string) throws IllegalAccessException {
-
-        if (string.length() < PLAYER_STRING_LENGTH * 2 + ASSAM_STRING_LENGTH + BOARD_STRING_LENGTH
-                || string.length() > PLAYER_STRING_LENGTH * 2 + ASSAM_STRING_LENGTH + BOARD_STRING_LENGTH)
-        { throw new IllegalAccessException("Illegal length of string parsed  into gamestring constructor."); }
-
-        this.p1String = string.substring(0, 8);
-        this.p2String = string.substring(8, 16);
-
+    public GameString(String string) {
         int stringLength = string.length();
 
-        // 2 players
-        if (stringLength == PLAYER_STRING_LENGTH * 2 + ASSAM_STRING_LENGTH + BOARD_STRING_LENGTH){
-            this.assamString = string.substring(16,20);
-            this.boardString = string.substring(20);
+        //test if string too short or does not contain correct player length
+        if (stringLength < PLAYER_STRING_LENGTH * 2 + ASSAM_STRING_LENGTH + BOARD_STRING_LENGTH || (stringLength - ASSAM_STRING_LENGTH - BOARD_STRING_LENGTH) % PLAYER_STRING_LENGTH != 0)
+        { throw new IllegalArgumentException("Illegal length of string parsed  into gamestring constructor."); }
+
+        this.gameString = string;
+
+        //calculate player numbers
+        int numOfPlayers = (stringLength - ASSAM_STRING_LENGTH - BOARD_STRING_LENGTH) / PLAYER_STRING_LENGTH;
+
+        playerStrings = new ArrayList<>();
+        int i;
+        for (i = 0; i < numOfPlayers; i ++) {
+            playerStrings.add(string.substring(i * 8, (i + 1) * 8));
         }
 
-        // 3 players
-        if (stringLength == PLAYER_STRING_LENGTH * 3 + ASSAM_STRING_LENGTH + BOARD_STRING_LENGTH){
-            this.p3String = string.substring(16, 24);
-            this.assamString = string.substring(24, 28);
-            this.boardString = string.substring(28);
-        }
+        this.assamString = string.substring(i * 8, i * 8 + ASSAM_STRING_LENGTH);
 
-        // 4 player
-        if (stringLength == PLAYER_STRING_LENGTH * 4 + ASSAM_STRING_LENGTH + BOARD_STRING_LENGTH){
-            this.p3String = string.substring(16, 24);
-            this.p4String = string.substring(24, 32);
-            this.assamString = string.substring(32, 36);
-            this.boardString = string.substring(36);
-        }
+        this.boardString = string.substring(i * 8 + ASSAM_STRING_LENGTH);
 
     }
 
     // getter methods
-    public String getPlayer1String() { return this.p1String; }
-    public String getPlayer2String() {return "";}
-    public String getPlayer3String() {return "";}
-    public String getPlayer4String() {return "";}
-    public String getAssamString() {return "";}
-    public String getBoardString() {return "";}
 
-    // setter methods
-    public void setNewPlayerString(String newPlayerString) {}
-    public void setNewRugString(String newRugString){}
-    public void setNewBoardString(String newBoardString){}
+
+    public ArrayList<String> getPlayerStrings() {
+        return playerStrings;
+    }
+
+    public String getPlayerStr() {
+        StringBuilder sb = new StringBuilder();
+        playerStrings.forEach(sb::append);
+        return sb.toString();
+    }
+
+    public String getPlayerString(int playerNum) {
+        if(playerNum >= playerStrings.size()) throw new IllegalArgumentException("Player Number Exceeded maximum player");
+        return playerStrings.get(playerNum);
+    }
+
+    public String getAssamString() {return this.assamString;}
+    public String getBoardString() {return this.boardString;}
+
+    public void setPlayerStrings(ArrayList<String> playerStrings) {
+        this.playerStrings = playerStrings;
+    }
+
+    public void setPlayerString(String playerString, int playerNum ) {
+
+        this.playerStrings.set(playerNum, playerString);
+    }
+
+    public void setAssamString(String assamString) {
+        this.assamString = assamString;
+    }
+
+    public void setBoardString(String boardString) {
+        this.boardString = boardString;
+    }
 
     // other helper methdos
     @Override
     public String toString() {
-        return "";
+        return new StringBuilder().append(getPlayerStr()).append(assamString).append(boardString).toString();
     }
 
 }
