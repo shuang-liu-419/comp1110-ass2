@@ -176,20 +176,6 @@ public class Viewer extends Application {
 
 
 
-
-
-//        Pc02900i Py04400i Pp04100i Pr00600i A14S  Bp12p23y30p11y05c21y04c30c30y30p30p30y26r17y02r18c25r02y25y21n00y11p29p29c04c04y20r25p19r24c23c23c14r15r25p24r24p22p22r22c20p14p24p16p16p27p27y22y22 to have winner p ==>
-
-
-//        Rectangle cell1 = new Rectangle(179, 105, 123, 72);
-//        cell1.setFill(Color.RED);
-//        root.getChildren().add(cell1);
-
-
-//        p12p23y30p11y05c21y04c30c30y30p30p30y26r17y02r18c25r02y25y21n00y11p29p29c04c04y20r25p19r24c23c23c14r15r25p24r24p22p22r22c20p14p24p16p16p27p27y22y22
-
-
-
         // FIXME Task 5: implement the simple state viewer
     }
 
@@ -220,6 +206,13 @@ public class Viewer extends Application {
     public void start(Stage primaryStage) throws Exception {
         primaryStage.setTitle("Marrakech Viewer");
         Scene scene = new Scene(root, VIEWER_WIDTH, VIEWER_HEIGHT);
+        Image Marrakech = new Image("file:src/comp1110/ass2/gui/Marrakech.png");
+        ImageView MarrakechView = new ImageView(Marrakech);
+        double desiredWidth = 1200;
+        double desiredHeight = 700;
+        MarrakechView.setFitWidth(desiredWidth);
+        MarrakechView.setFitHeight(desiredHeight);
+        root.getChildren().add(MarrakechView);
         Circle marker = new Circle(5, Color.RED);
         scene.setOnMouseClicked(event -> {
             double mouseX = event.getSceneX();
