@@ -39,8 +39,6 @@ public class Marrakech {
 
         Rug test = new Rug(rug);
 
-
-
         if(!test.isCoordValid()) return false;
 
         Board board = new Board(gs.getBoardString());

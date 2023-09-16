@@ -14,7 +14,7 @@ public enum Color {
     public static final HashMap<Character, Color> CHARACTER_COLOR_HASH_MAP;
 
     static {
-        CHARACTER_COLOR_HASH_MAP = new HashMap<>(4);
+        CHARACTER_COLOR_HASH_MAP = new HashMap<>(5);
         CHARACTER_COLOR_HASH_MAP.put('c', CYAN);
         CHARACTER_COLOR_HASH_MAP.put('y', YELLOW);
         CHARACTER_COLOR_HASH_MAP.put('p', PURPLE);
@@ -22,6 +22,11 @@ public enum Color {
         CHARACTER_COLOR_HASH_MAP.put('n', NONE);
     }
 
+    /**
+     *
+     * @param c
+     * @return
+     */
     public static char toChar(Color c) {
         return c.toString().toLowerCase().charAt(0);
     }

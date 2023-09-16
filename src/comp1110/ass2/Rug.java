@@ -7,6 +7,16 @@ public class Rug {
    private IntPair coord1;
    private IntPair coord2;
 
+   /*
+    default constructor
+    */
+    public Rug(Color color, String id, IntPair coord1, IntPair coord2) {
+        this.color = color;
+        this.id = id;
+        this.coord1 = coord1;
+        this.coord2 = coord2;
+    }
+
     /**
      * Sample Rug p014445
      * p
